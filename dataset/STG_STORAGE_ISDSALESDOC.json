@@ -1,0 +1,608 @@
+{
+	"name": "STG_STORAGE_ISDSALESDOC",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "1. Staging"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "ISDSALESDOC.csv",
+				"container": "sap-landingzone"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MANDT",
+				"type": "String"
+			},
+			{
+				"name": "SALESDOCUMENT",
+				"type": "String"
+			},
+			{
+				"name": "SDDOCUMENTCATEGORY",
+				"type": "String"
+			},
+			{
+				"name": "SALESDOCUMENTTYPE",
+				"type": "String"
+			},
+			{
+				"name": "SALESDOCUMENTPROCESSINGTYPE",
+				"type": "String"
+			},
+			{
+				"name": "CREATEDBYUSER",
+				"type": "String"
+			},
+			{
+				"name": "LASTCHANGEDBYUSER",
+				"type": "String"
+			},
+			{
+				"name": "CREATIONDATE",
+				"type": "String"
+			},
+			{
+				"name": "CREATIONTIME",
+				"type": "String"
+			},
+			{
+				"name": "LASTCHANGEDATE",
+				"type": "String"
+			},
+			{
+				"name": "LASTCHANGEDATETIME",
+				"type": "String"
+			},
+			{
+				"name": "SALESORGANIZATION",
+				"type": "String"
+			},
+			{
+				"name": "DISTRIBUTIONCHANNEL",
+				"type": "String"
+			},
+			{
+				"name": "ORGANIZATIONDIVISION",
+				"type": "String"
+			},
+			{
+				"name": "SALESGROUP",
+				"type": "String"
+			},
+			{
+				"name": "SALESOFFICE",
+				"type": "String"
+			},
+			{
+				"name": "SOLDTOPARTY",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERGROUP",
+				"type": "String"
+			},
+			{
+				"name": "ADDITIONALCUSTOMERGROUP1",
+				"type": "String"
+			},
+			{
+				"name": "ADDITIONALCUSTOMERGROUP2",
+				"type": "String"
+			},
+			{
+				"name": "ADDITIONALCUSTOMERGROUP3",
+				"type": "String"
+			},
+			{
+				"name": "ADDITIONALCUSTOMERGROUP4",
+				"type": "String"
+			},
+			{
+				"name": "ADDITIONALCUSTOMERGROUP5",
+				"type": "String"
+			},
+			{
+				"name": "CREDITCONTROLAREA",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERREBATEAGREEMENT",
+				"type": "String"
+			},
+			{
+				"name": "SALESDOCUMENTDATE",
+				"type": "String"
+			},
+			{
+				"name": "SERVICESRENDEREDDATE",
+				"type": "String"
+			},
+			{
+				"name": "SDDOCUMENTREASON",
+				"type": "String"
+			},
+			{
+				"name": "PURCHASEORDERBYCUSTOMER",
+				"type": "String"
+			},
+			{
+				"name": "SDDOCUMENTCOLLECTIVENUMBER",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERPURCHASEORDERTYPE",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERPURCHASEORDERDATE",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERPURCHASEORDERSUPLMNT",
+				"type": "String"
+			},
+			{
+				"name": "SALESDISTRICT",
+				"type": "String"
+			},
+			{
+				"name": "STATISTICSCURRENCY",
+				"type": "String"
+			},
+			{
+				"name": "PRODUCTCATALOG",
+				"type": "String"
+			},
+			{
+				"name": "RETSMGMTPROCESS",
+				"type": "String"
+			},
+			{
+				"name": "NEXTCREDITCHECKDATE",
+				"type": "String"
+			},
+			{
+				"name": "BINDINGPERIODVALIDITYSTARTDATE",
+				"type": "String"
+			},
+			{
+				"name": "BINDINGPERIODVALIDITYENDDATE",
+				"type": "String"
+			},
+			{
+				"name": "HDRORDERPROBABILITYINPERCENT",
+				"type": "String"
+			},
+			{
+				"name": "SALESCONTRACTSIGNEDDATE",
+				"type": "String"
+			},
+			{
+				"name": "CONTRACTPARTNERCANCLNDOCDATE",
+				"type": "String"
+			},
+			{
+				"name": "NMBROFSALESCONTRACTVALDTYPERD",
+				"type": "String"
+			},
+			{
+				"name": "SALESCONTRACTVALIDITYPERDUNIT",
+				"type": "String"
+			},
+			{
+				"name": "SALESCONTRACTVALIDITYPERDCAT",
+				"type": "String"
+			},
+			{
+				"name": "SLSCONTRACTCANCLNREQRCPTDATE",
+				"type": "String"
+			},
+			{
+				"name": "REQUESTEDCANCELLATIONDATE",
+				"type": "String"
+			},
+			{
+				"name": "SALESCONTRACTCANCLNPARTY",
+				"type": "String"
+			},
+			{
+				"name": "SALESCONTRACTCANCLNREASON",
+				"type": "String"
+			},
+			{
+				"name": "SALESCONTRACTCANCLNPROCEDURE",
+				"type": "String"
+			},
+			{
+				"name": "EQUIPMENTINSTALLATIONDATE",
+				"type": "String"
+			},
+			{
+				"name": "EQUIPMENTDELIVERYACCPTCDATE",
+				"type": "String"
+			},
+			{
+				"name": "EQUIPMENTDISMANTLINGDATE",
+				"type": "String"
+			},
+			{
+				"name": "SALESCONTRACTFOLLOWUPACTION",
+				"type": "String"
+			},
+			{
+				"name": "SLSCONTRACTFOLLOWUPACTIONDATE",
+				"type": "String"
+			},
+			{
+				"name": "CANCLNDOCBYCONTRPARTNER",
+				"type": "String"
+			},
+			{
+				"name": "SCHEDULINGAGREEMENTPROFILECODE",
+				"type": "String"
+			},
+			{
+				"name": "AGRMTVALDTYSTARTDATE",
+				"type": "String"
+			},
+			{
+				"name": "AGRMTVALDTYENDDATE",
+				"type": "String"
+			},
+			{
+				"name": "TOTALNETAMOUNT",
+				"type": "String"
+			},
+			{
+				"name": "TRANSACTIONCURRENCY",
+				"type": "String"
+			},
+			{
+				"name": "PRICINGDATE",
+				"type": "String"
+			},
+			{
+				"name": "RETAILPROMOTION",
+				"type": "String"
+			},
+			{
+				"name": "PRICEDETNEXCHANGERATE",
+				"type": "String"
+			},
+			{
+				"name": "SALESDOCUMENTCONDITION",
+				"type": "String"
+			},
+			{
+				"name": "SDPRICINGPROCEDURE",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERTAXCLASSIFICATION1",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERTAXCLASSIFICATION2",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERTAXCLASSIFICATION3",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERTAXCLASSIFICATION4",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERTAXCLASSIFICATION5",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERTAXCLASSIFICATION6",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERTAXCLASSIFICATION7",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERTAXCLASSIFICATION8",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERTAXCLASSIFICATION9",
+				"type": "String"
+			},
+			{
+				"name": "REQUESTEDDELIVERYDATE",
+				"type": "String"
+			},
+			{
+				"name": "SHIPPINGTYPE",
+				"type": "String"
+			},
+			{
+				"name": "SHIPPINGCONDITION",
+				"type": "String"
+			},
+			{
+				"name": "INCOTERMSCLASSIFICATION",
+				"type": "String"
+			},
+			{
+				"name": "INCOTERMSTRANSFERLOCATION",
+				"type": "String"
+			},
+			{
+				"name": "INCOTERMSLOCATION1",
+				"type": "String"
+			},
+			{
+				"name": "INCOTERMSLOCATION2",
+				"type": "String"
+			},
+			{
+				"name": "INCOTERMSVERSION",
+				"type": "String"
+			},
+			{
+				"name": "COMPLETEDELIVERYISDEFINED",
+				"type": "String"
+			},
+			{
+				"name": "DELIVERYBLOCKREASON",
+				"type": "String"
+			},
+			{
+				"name": "FASHIONCANCELDATE",
+				"type": "String"
+			},
+			{
+				"name": "BILLINGDOCUMENTDATE",
+				"type": "String"
+			},
+			{
+				"name": "BILLINGCOMPANYCODE",
+				"type": "String"
+			},
+			{
+				"name": "HEADERBILLINGBLOCKREASON",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERPAYMENTTERMS",
+				"type": "String"
+			},
+			{
+				"name": "PAYMENTMETHOD",
+				"type": "String"
+			},
+			{
+				"name": "FIXEDVALUEDATE",
+				"type": "String"
+			},
+			{
+				"name": "ADDITIONALVALUEDAYS",
+				"type": "String"
+			},
+			{
+				"name": "FISCALYEAR",
+				"type": "String"
+			},
+			{
+				"name": "FISCALPERIOD",
+				"type": "String"
+			},
+			{
+				"name": "EXCHANGERATEDATE",
+				"type": "String"
+			},
+			{
+				"name": "EXCHANGERATETYPE",
+				"type": "String"
+			},
+			{
+				"name": "BUSINESSAREA",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERACCOUNTASSIGNMENTGROUP",
+				"type": "String"
+			},
+			{
+				"name": "COSTCENTERBUSINESSAREA",
+				"type": "String"
+			},
+			{
+				"name": "COSTCENTER",
+				"type": "String"
+			},
+			{
+				"name": "CONTROLLINGAREA",
+				"type": "String"
+			},
+			{
+				"name": "ORDERID",
+				"type": "String"
+			},
+			{
+				"name": "CONTROLLINGOBJECT",
+				"type": "String"
+			},
+			{
+				"name": "ASSIGNMENTREFERENCE",
+				"type": "String"
+			},
+			{
+				"name": "PAYMENTPLAN",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERCREDITACCOUNT",
+				"type": "String"
+			},
+			{
+				"name": "CONTROLLINGAREACURRENCY",
+				"type": "String"
+			},
+			{
+				"name": "RELEASEDCREDITAMOUNT",
+				"type": "String"
+			},
+			{
+				"name": "CREDITBLOCKRELEASEDATE",
+				"type": "String"
+			},
+			{
+				"name": "NEXTSHIPPINGDATE",
+				"type": "String"
+			},
+			{
+				"name": "REFERENCESDDOCUMENT",
+				"type": "String"
+			},
+			{
+				"name": "REFERENCESDDOCUMENTCATEGORY",
+				"type": "String"
+			},
+			{
+				"name": "SALESITEMPROPOSALDESCRIPTION",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLSDPROCESSSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLPURCHASECONFSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLSDDOCUMENTREJECTIONSTS",
+				"type": "String"
+			},
+			{
+				"name": "TOTALBLOCKSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLDELIVCONFSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLTOTALDELIVERYSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLDELIVERYSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLDELIVERYBLOCKSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLORDRELTDBILLGSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLBILLINGBLOCKSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLTOTALSDDOCREFSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLSDDOCREFERENCESTATUS",
+				"type": "String"
+			},
+			{
+				"name": "TOTALCREDITCHECKSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "MAXDOCVALUECREDITCHECKSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "PAYMENTTERMCREDITCHECKSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "FINDOCCREDITCHECKSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "EXPRTINSURCREDITCHECKSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "PAYTAUTHSNCREDITCHECKSTS",
+				"type": "String"
+			},
+			{
+				"name": "CENTRALCREDITCHECKSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "CENTRALCREDITCHKTECHERRSTS",
+				"type": "String"
+			},
+			{
+				"name": "HDRGENERALINCOMPLETIONSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLPRICINGINCOMPLETIONSTS",
+				"type": "String"
+			},
+			{
+				"name": "HEADERDELIVINCOMPLETIONSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "HEADERBILLGINCOMPLETIONSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "OVRLITMGENERALINCOMPLETIONSTS",
+				"type": "String"
+			},
+			{
+				"name": "OVRLITMBILLINGINCOMPLETIONSTS",
+				"type": "String"
+			},
+			{
+				"name": "OVRLITMDELIVINCOMPLETIONSTS",
+				"type": "String"
+			},
+			{
+				"name": "CONTRACTMANUALCOMPLETION",
+				"type": "String"
+			},
+			{
+				"name": "OVERALLCHMLCMPLNCSTATUS",
+				"type": "String"
+			},
+			{
+				"name": "ID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

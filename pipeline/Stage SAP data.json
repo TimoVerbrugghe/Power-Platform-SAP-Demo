@@ -1,0 +1,1575 @@
+{
+	"name": "Stage SAP data",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stage SAP Data",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "."
+					},
+					{
+						"name": "Destination",
+						"value": "sap-landingzone//"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "SapHanaSource",
+						"additionalColumns": [
+							{
+								"name": "ID",
+								"value": ""
+							}
+						],
+						"query": "SELECT *\nFROM SAPHANADB.ISDSALESDOC_TST WHERE LEFT(CREATIONDATE, 4) > 2017",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MANDT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MANDT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESDOCUMENT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESDOCUMENT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SDDOCUMENTCATEGORY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDDOCUMENTCATEGORY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESDOCUMENTTYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESDOCUMENTTYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESDOCUMENTPROCESSINGTYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESDOCUMENTPROCESSINGTYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATEDBYUSER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CREATEDBYUSER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LASTCHANGEDBYUSER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LASTCHANGEDBYUSER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATIONDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CREATIONDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATIONTIME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CREATIONTIME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LASTCHANGEDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LASTCHANGEDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LASTCHANGEDATETIME",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "LASTCHANGEDATETIME",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESORGANIZATION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESORGANIZATION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DISTRIBUTIONCHANNEL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DISTRIBUTIONCHANNEL",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ORGANIZATIONDIVISION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ORGANIZATIONDIVISION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESGROUP",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESGROUP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESOFFICE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESOFFICE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SOLDTOPARTY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SOLDTOPARTY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERGROUP",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERGROUP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDITIONALCUSTOMERGROUP1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDITIONALCUSTOMERGROUP1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDITIONALCUSTOMERGROUP2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDITIONALCUSTOMERGROUP2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDITIONALCUSTOMERGROUP3",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDITIONALCUSTOMERGROUP3",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDITIONALCUSTOMERGROUP4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDITIONALCUSTOMERGROUP4",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDITIONALCUSTOMERGROUP5",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDITIONALCUSTOMERGROUP5",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CREDITCONTROLAREA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CREDITCONTROLAREA",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERREBATEAGREEMENT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERREBATEAGREEMENT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESDOCUMENTDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESDOCUMENTDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SERVICESRENDEREDDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SERVICESRENDEREDDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SDDOCUMENTREASON",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDDOCUMENTREASON",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PURCHASEORDERBYCUSTOMER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PURCHASEORDERBYCUSTOMER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SDDOCUMENTCOLLECTIVENUMBER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDDOCUMENTCOLLECTIVENUMBER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERPURCHASEORDERTYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERPURCHASEORDERTYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERPURCHASEORDERDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERPURCHASEORDERDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERPURCHASEORDERSUPLMNT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERPURCHASEORDERSUPLMNT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESDISTRICT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESDISTRICT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "STATISTICSCURRENCY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STATISTICSCURRENCY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PRODUCTCATALOG",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PRODUCTCATALOG",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RETSMGMTPROCESS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RETSMGMTPROCESS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NEXTCREDITCHECKDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NEXTCREDITCHECKDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BINDINGPERIODVALIDITYSTARTDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BINDINGPERIODVALIDITYSTARTDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BINDINGPERIODVALIDITYENDDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BINDINGPERIODVALIDITYENDDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HDRORDERPROBABILITYINPERCENT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "HDRORDERPROBABILITYINPERCENT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESCONTRACTSIGNEDDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESCONTRACTSIGNEDDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CONTRACTPARTNERCANCLNDOCDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CONTRACTPARTNERCANCLNDOCDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NMBROFSALESCONTRACTVALDTYPERD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NMBROFSALESCONTRACTVALDTYPERD",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESCONTRACTVALIDITYPERDUNIT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESCONTRACTVALIDITYPERDUNIT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESCONTRACTVALIDITYPERDCAT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESCONTRACTVALIDITYPERDCAT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SLSCONTRACTCANCLNREQRCPTDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SLSCONTRACTCANCLNREQRCPTDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REQUESTEDCANCELLATIONDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "REQUESTEDCANCELLATIONDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESCONTRACTCANCLNPARTY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESCONTRACTCANCLNPARTY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESCONTRACTCANCLNREASON",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESCONTRACTCANCLNREASON",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESCONTRACTCANCLNPROCEDURE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESCONTRACTCANCLNPROCEDURE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EQUIPMENTINSTALLATIONDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "EQUIPMENTINSTALLATIONDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EQUIPMENTDELIVERYACCPTCDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "EQUIPMENTDELIVERYACCPTCDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EQUIPMENTDISMANTLINGDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "EQUIPMENTDISMANTLINGDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESCONTRACTFOLLOWUPACTION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESCONTRACTFOLLOWUPACTION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SLSCONTRACTFOLLOWUPACTIONDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SLSCONTRACTFOLLOWUPACTIONDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CANCLNDOCBYCONTRPARTNER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CANCLNDOCBYCONTRPARTNER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SCHEDULINGAGREEMENTPROFILECODE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SCHEDULINGAGREEMENTPROFILECODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AGRMTVALDTYSTARTDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AGRMTVALDTYSTARTDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AGRMTVALDTYENDDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AGRMTVALDTYENDDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTALNETAMOUNT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TOTALNETAMOUNT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TRANSACTIONCURRENCY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TRANSACTIONCURRENCY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PRICINGDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PRICINGDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RETAILPROMOTION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RETAILPROMOTION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PRICEDETNEXCHANGERATE",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "PRICEDETNEXCHANGERATE",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESDOCUMENTCONDITION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESDOCUMENTCONDITION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SDPRICINGPROCEDURE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDPRICINGPROCEDURE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERTAXCLASSIFICATION1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERTAXCLASSIFICATION1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERTAXCLASSIFICATION2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERTAXCLASSIFICATION2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERTAXCLASSIFICATION3",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERTAXCLASSIFICATION3",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERTAXCLASSIFICATION4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERTAXCLASSIFICATION4",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERTAXCLASSIFICATION5",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERTAXCLASSIFICATION5",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERTAXCLASSIFICATION6",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERTAXCLASSIFICATION6",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERTAXCLASSIFICATION7",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERTAXCLASSIFICATION7",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERTAXCLASSIFICATION8",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERTAXCLASSIFICATION8",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERTAXCLASSIFICATION9",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERTAXCLASSIFICATION9",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REQUESTEDDELIVERYDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "REQUESTEDDELIVERYDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SHIPPINGTYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SHIPPINGTYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SHIPPINGCONDITION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SHIPPINGCONDITION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INCOTERMSCLASSIFICATION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INCOTERMSCLASSIFICATION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INCOTERMSTRANSFERLOCATION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INCOTERMSTRANSFERLOCATION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INCOTERMSLOCATION1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INCOTERMSLOCATION1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INCOTERMSLOCATION2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INCOTERMSLOCATION2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INCOTERMSVERSION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INCOTERMSVERSION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "COMPLETEDELIVERYISDEFINED",
+									"type": "String"
+								},
+								"sink": {
+									"name": "COMPLETEDELIVERYISDEFINED",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DELIVERYBLOCKREASON",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DELIVERYBLOCKREASON",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FASHIONCANCELDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FASHIONCANCELDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BILLINGDOCUMENTDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BILLINGDOCUMENTDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BILLINGCOMPANYCODE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BILLINGCOMPANYCODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HEADERBILLINGBLOCKREASON",
+									"type": "String"
+								},
+								"sink": {
+									"name": "HEADERBILLINGBLOCKREASON",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERPAYMENTTERMS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERPAYMENTTERMS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PAYMENTMETHOD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PAYMENTMETHOD",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FIXEDVALUEDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FIXEDVALUEDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDITIONALVALUEDAYS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDITIONALVALUEDAYS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FISCALYEAR",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FISCALYEAR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FISCALPERIOD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FISCALPERIOD",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EXCHANGERATEDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "EXCHANGERATEDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EXCHANGERATETYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "EXCHANGERATETYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BUSINESSAREA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BUSINESSAREA",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERACCOUNTASSIGNMENTGROUP",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERACCOUNTASSIGNMENTGROUP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "COSTCENTERBUSINESSAREA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "COSTCENTERBUSINESSAREA",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "COSTCENTER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "COSTCENTER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CONTROLLINGAREA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CONTROLLINGAREA",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ORDERID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ORDERID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CONTROLLINGOBJECT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CONTROLLINGOBJECT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ASSIGNMENTREFERENCE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ASSIGNMENTREFERENCE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PAYMENTPLAN",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PAYMENTPLAN",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERCREDITACCOUNT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERCREDITACCOUNT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CONTROLLINGAREACURRENCY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CONTROLLINGAREACURRENCY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RELEASEDCREDITAMOUNT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "RELEASEDCREDITAMOUNT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "CREDITBLOCKRELEASEDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CREDITBLOCKRELEASEDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NEXTSHIPPINGDATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NEXTSHIPPINGDATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REFERENCESDDOCUMENT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "REFERENCESDDOCUMENT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REFERENCESDDOCUMENTCATEGORY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "REFERENCESDDOCUMENTCATEGORY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESITEMPROPOSALDESCRIPTION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALESITEMPROPOSALDESCRIPTION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLSDPROCESSSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLSDPROCESSSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLPURCHASECONFSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLPURCHASECONFSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLSDDOCUMENTREJECTIONSTS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLSDDOCUMENTREJECTIONSTS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTALBLOCKSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOTALBLOCKSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLDELIVCONFSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLDELIVCONFSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLTOTALDELIVERYSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLTOTALDELIVERYSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLDELIVERYSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLDELIVERYSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLDELIVERYBLOCKSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLDELIVERYBLOCKSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLORDRELTDBILLGSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLORDRELTDBILLGSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLBILLINGBLOCKSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLBILLINGBLOCKSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLTOTALSDDOCREFSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLTOTALSDDOCREFSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLSDDOCREFERENCESTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLSDDOCREFERENCESTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTALCREDITCHECKSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOTALCREDITCHECKSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MAXDOCVALUECREDITCHECKSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MAXDOCVALUECREDITCHECKSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PAYMENTTERMCREDITCHECKSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PAYMENTTERMCREDITCHECKSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FINDOCCREDITCHECKSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FINDOCCREDITCHECKSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EXPRTINSURCREDITCHECKSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "EXPRTINSURCREDITCHECKSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PAYTAUTHSNCREDITCHECKSTS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PAYTAUTHSNCREDITCHECKSTS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CENTRALCREDITCHECKSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CENTRALCREDITCHECKSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CENTRALCREDITCHKTECHERRSTS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CENTRALCREDITCHKTECHERRSTS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HDRGENERALINCOMPLETIONSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "HDRGENERALINCOMPLETIONSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLPRICINGINCOMPLETIONSTS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLPRICINGINCOMPLETIONSTS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HEADERDELIVINCOMPLETIONSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "HEADERDELIVINCOMPLETIONSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HEADERBILLGINCOMPLETIONSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "HEADERBILLGINCOMPLETIONSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVRLITMGENERALINCOMPLETIONSTS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVRLITMGENERALINCOMPLETIONSTS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVRLITMBILLINGINCOMPLETIONSTS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVRLITMBILLINGINCOMPLETIONSTS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVRLITMDELIVINCOMPLETIONSTS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVRLITMDELIVINCOMPLETIONSTS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CONTRACTMANUALCOMPLETION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CONTRACTMANUALCOMPLETION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OVERALLCHMLCMPLNCSTATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OVERALLCHMLCMPLNCSTATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ID"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "Guid"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "STG_SAPHANA_ISDSALESDOC",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "STG_ADLS_ISDSALESDOC",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Prepare SALESDOC Data",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "Stage SAP Data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Modify Stage Data",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					}
+				}
+			},
+			{
+				"name": "Push SALESDOC data to CDS",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Prepare SALESDOC Data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Push data to CDS",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Demo"
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

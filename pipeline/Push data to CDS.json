@@ -1,0 +1,144 @@
+{
+	"name": "Push data to CDS",
+	"properties": {
+		"activities": [
+			{
+				"name": "Curated to CDS",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "CommonDataServiceForAppsSink",
+						"writeBatchSize": 10,
+						"writeBehavior": "upsert",
+						"ignoreNullValues": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "SALESDOCUMENT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cr174_salesdocument"
+								}
+							},
+							{
+								"source": {
+									"name": "ID",
+									"type": "Guid"
+								},
+								"sink": {
+									"name": "cr174_salesdocid"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATEDBYUSER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cr174_createdbyuser"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATIONDATE",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "cr174_creationdate"
+								}
+							},
+							{
+								"source": {
+									"name": "SALESORGANIZATION",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "cr174_salesorganization"
+								}
+							},
+							{
+								"source": {
+									"name": "SOLDTOPARTY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cr174_soldtoparty"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTALNETAMOUNT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "cr174_totalnetamount"
+								}
+							},
+							{
+								"source": {
+									"name": "TRANSACTIONCURRENCY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cr174_transactioncurrency"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMERPAYMENTTERMS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cr174_customerpaymentterms"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "CUR_ADLS_SALESDOC",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ENTITY_SALESDOC",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Demo"
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

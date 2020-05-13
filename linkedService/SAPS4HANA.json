@@ -1,0 +1,16 @@
+{
+	"name": "SAPS4HANA",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapHana",
+		"typeProperties": {
+			"connectionString": "servernode=13.80.248.228:30215;uid=SAPHANADB",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJkYmU2OWY1Ny1jY2I3LTQzOGMtOGRmMS1hNzAzN2I1MDllMmEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SAPIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

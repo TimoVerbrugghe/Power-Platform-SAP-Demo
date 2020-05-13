@@ -1,0 +1,7 @@
+{
+	"name": "SAPIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "The integration runtime running on the SAPOPGatewayVM"
+	}
+}

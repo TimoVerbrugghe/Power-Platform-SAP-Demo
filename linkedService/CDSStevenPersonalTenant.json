@@ -1,0 +1,16 @@
+{
+	"name": "CDSStevenPersonalTenant",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "CommonDataServiceForApps",
+		"typeProperties": {
+			"deploymentType": "Online",
+			"serviceUri": "https://org9175e37a.crm4.dynamics.com/",
+			"authenticationType": "AADServicePrincipal",
+			"servicePrincipalCredentialType": "ServicePrincipalKey",
+			"servicePrincipalId": "9704b7a2-10e7-4c65-ab7f-879d50b50529",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlNBUERFTU9EQVRBRkFDVE9SWV83NzIyMzZhMi0zODk4LTQwOWUtOTQzYi05MDA4MmQ4NmY2ZjAiDQp9"
+		}
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"name": "CUR_STORAGE_SALESDOC",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "2. Curated"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "sap-curatedzone"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SALESDOCUMENT",
+				"type": "String"
+			},
+			{
+				"name": "CREATEDBYUSER",
+				"type": "String"
+			},
+			{
+				"name": "CREATIONDATE",
+				"type": "String"
+			},
+			{
+				"name": "SALESORGANIZATION",
+				"type": "String"
+			},
+			{
+				"name": "SOLDTOPARTY",
+				"type": "String"
+			},
+			{
+				"name": "TOTALNETAMOUNT",
+				"type": "String"
+			},
+			{
+				"name": "TRANSACTIONCURRENCY",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMERPAYMENTTERMS",
+				"type": "String"
+			},
+			{
+				"name": "ID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

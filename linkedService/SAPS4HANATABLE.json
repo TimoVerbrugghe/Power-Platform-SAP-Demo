@@ -1,0 +1,21 @@
+{
+	"name": "SAPS4HANATABLE",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapTable",
+		"typeProperties": {
+			"clientId": "100",
+			"language": "",
+			"sncMode": false,
+			"userName": "SAP*",
+			"server": "13.80.248.228",
+			"systemNumber": "00",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzZjNhMjJjOC04ZTFmLTQ5NDctYWM4OS1mM2FmM2U4NWQwMDMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SAPIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

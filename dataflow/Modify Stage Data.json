@@ -1,0 +1,35 @@
+{
+	"name": "Modify Stage Data",
+	"properties": {
+		"folder": {
+			"name": "Demo"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "STG_ADLS_ISDSALESDOC",
+						"type": "DatasetReference"
+					},
+					"name": "StagingLayer"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "CUR_ADLS_SALESDOC",
+						"type": "DatasetReference"
+					},
+					"name": "CuratedLayer"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SelectSpecificColumns"
+				}
+			],
+			"script": "source(output(\n\t\tMANDT as short,\n\t\tSALESDOCUMENT as long,\n\t\tSDDOCUMENTCATEGORY as string,\n\t\tSALESDOCUMENTTYPE as string,\n\t\tSALESDOCUMENTPROCESSINGTYPE as string,\n\t\tCREATEDBYUSER as string,\n\t\tLASTCHANGEDBYUSER as string,\n\t\tCREATIONDATE as integer,\n\t\tCREATIONTIME as integer,\n\t\tLASTCHANGEDATE as integer,\n\t\tLASTCHANGEDATETIME as double,\n\t\tSALESORGANIZATION as short,\n\t\tDISTRIBUTIONCHANNEL as short,\n\t\tORGANIZATIONDIVISION as short,\n\t\tSALESGROUP as string,\n\t\tSALESOFFICE as string,\n\t\tSOLDTOPARTY as string,\n\t\tCUSTOMERGROUP as string,\n\t\tADDITIONALCUSTOMERGROUP1 as string,\n\t\tADDITIONALCUSTOMERGROUP2 as string,\n\t\tADDITIONALCUSTOMERGROUP3 as string,\n\t\tADDITIONALCUSTOMERGROUP4 as string,\n\t\tADDITIONALCUSTOMERGROUP5 as string,\n\t\tCREDITCONTROLAREA as string,\n\t\tCUSTOMERREBATEAGREEMENT as string,\n\t\tSALESDOCUMENTDATE as date,\n\t\tSERVICESRENDEREDDATE as integer,\n\t\tSDDOCUMENTREASON as short,\n\t\tPURCHASEORDERBYCUSTOMER as string,\n\t\tSDDOCUMENTCOLLECTIVENUMBER as string,\n\t\tCUSTOMERPURCHASEORDERTYPE as string,\n\t\tCUSTOMERPURCHASEORDERDATE as integer,\n\t\tCUSTOMERPURCHASEORDERSUPLMNT as short,\n\t\tSALESDISTRICT as string,\n\t\tSTATISTICSCURRENCY as string,\n\t\tPRODUCTCATALOG as string,\n\t\tRETSMGMTPROCESS as short,\n\t\tNEXTCREDITCHECKDATE as short,\n\t\tBINDINGPERIODVALIDITYSTARTDATE as integer,\n\t\tBINDINGPERIODVALIDITYENDDATE as integer,\n\t\tHDRORDERPROBABILITYINPERCENT as short,\n\t\tSALESCONTRACTSIGNEDDATE as string,\n\t\tCONTRACTPARTNERCANCLNDOCDATE as string,\n\t\tNMBROFSALESCONTRACTVALDTYPERD as string,\n\t\tSALESCONTRACTVALIDITYPERDUNIT as string,\n\t\tSALESCONTRACTVALIDITYPERDCAT as string,\n\t\tSLSCONTRACTCANCLNREQRCPTDATE as string,\n\t\tREQUESTEDCANCELLATIONDATE as string,\n\t\tSALESCONTRACTCANCLNPARTY as string,\n\t\tSALESCONTRACTCANCLNREASON as string,\n\t\tSALESCONTRACTCANCLNPROCEDURE as string,\n\t\tEQUIPMENTINSTALLATIONDATE as string,\n\t\tEQUIPMENTDELIVERYACCPTCDATE as string,\n\t\tEQUIPMENTDISMANTLINGDATE as string,\n\t\tSALESCONTRACTFOLLOWUPACTION as string,\n\t\tSLSCONTRACTFOLLOWUPACTIONDATE as string,\n\t\tCANCLNDOCBYCONTRPARTNER as string,\n\t\tSCHEDULINGAGREEMENTPROFILECODE as string,\n\t\tAGRMTVALDTYSTARTDATE as integer,\n\t\tAGRMTVALDTYENDDATE as integer,\n\t\tTOTALNETAMOUNT as double,\n\t\tTRANSACTIONCURRENCY as string,\n\t\tPRICINGDATE as date,\n\t\tRETAILPROMOTION as string,\n\t\tPRICEDETNEXCHANGERATE as double,\n\t\tSALESDOCUMENTCONDITION as short,\n\t\tSDPRICINGPROCEDURE as string,\n\t\tCUSTOMERTAXCLASSIFICATION1 as boolean,\n\t\tCUSTOMERTAXCLASSIFICATION2 as string,\n\t\tCUSTOMERTAXCLASSIFICATION3 as string,\n\t\tCUSTOMERTAXCLASSIFICATION4 as string,\n\t\tCUSTOMERTAXCLASSIFICATION5 as string,\n\t\tCUSTOMERTAXCLASSIFICATION6 as string,\n\t\tCUSTOMERTAXCLASSIFICATION7 as string,\n\t\tCUSTOMERTAXCLASSIFICATION8 as string,\n\t\tCUSTOMERTAXCLASSIFICATION9 as string,\n\t\tREQUESTEDDELIVERYDATE as integer,\n\t\tSHIPPINGTYPE as string,\n\t\tSHIPPINGCONDITION as string,\n\t\tINCOTERMSCLASSIFICATION as string,\n\t\tINCOTERMSTRANSFERLOCATION as string,\n\t\tINCOTERMSLOCATION1 as string,\n\t\tINCOTERMSLOCATION2 as string,\n\t\tINCOTERMSVERSION as string,\n\t\tCOMPLETEDELIVERYISDEFINED as string,\n\t\tDELIVERYBLOCKREASON as string,\n\t\tFASHIONCANCELDATE as short,\n\t\tBILLINGDOCUMENTDATE as date,\n\t\tBILLINGCOMPANYCODE as short,\n\t\tHEADERBILLINGBLOCKREASON as string,\n\t\tCUSTOMERPAYMENTTERMS as string,\n\t\tPAYMENTMETHOD as string,\n\t\tFIXEDVALUEDATE as short,\n\t\tADDITIONALVALUEDAYS as short,\n\t\tFISCALYEAR as short,\n\t\tFISCALPERIOD as short,\n\t\tEXCHANGERATEDATE as integer,\n\t\tEXCHANGERATETYPE as string,\n\t\tBUSINESSAREA as string,\n\t\tCUSTOMERACCOUNTASSIGNMENTGROUP as short,\n\t\tCOSTCENTERBUSINESSAREA as string,\n\t\tCOSTCENTER as string,\n\t\tCONTROLLINGAREA as string,\n\t\tORDERID as string,\n\t\tCONTROLLINGOBJECT as string,\n\t\tASSIGNMENTREFERENCE as integer,\n\t\tPAYMENTPLAN as string,\n\t\tCUSTOMERCREDITACCOUNT as string,\n\t\tCONTROLLINGAREACURRENCY as string,\n\t\tRELEASEDCREDITAMOUNT as double,\n\t\tCREDITBLOCKRELEASEDATE as integer,\n\t\tNEXTSHIPPINGDATE as integer,\n\t\tREFERENCESDDOCUMENT as integer,\n\t\tREFERENCESDDOCUMENTCATEGORY as string,\n\t\tSALESITEMPROPOSALDESCRIPTION as string,\n\t\tOVERALLSDPROCESSSTATUS as string,\n\t\tOVERALLPURCHASECONFSTATUS as string,\n\t\tOVERALLSDDOCUMENTREJECTIONSTS as string,\n\t\tTOTALBLOCKSTATUS as string,\n\t\tOVERALLDELIVCONFSTATUS as string,\n\t\tOVERALLTOTALDELIVERYSTATUS as string,\n\t\tOVERALLDELIVERYSTATUS as string,\n\t\tOVERALLDELIVERYBLOCKSTATUS as string,\n\t\tOVERALLORDRELTDBILLGSTATUS as string,\n\t\tOVERALLBILLINGBLOCKSTATUS as string,\n\t\tOVERALLTOTALSDDOCREFSTATUS as string,\n\t\tOVERALLSDDOCREFERENCESTATUS as string,\n\t\tTOTALCREDITCHECKSTATUS as string,\n\t\tMAXDOCVALUECREDITCHECKSTATUS as string,\n\t\tPAYMENTTERMCREDITCHECKSTATUS as string,\n\t\tFINDOCCREDITCHECKSTATUS as string,\n\t\tEXPRTINSURCREDITCHECKSTATUS as string,\n\t\tPAYTAUTHSNCREDITCHECKSTS as string,\n\t\tCENTRALCREDITCHECKSTATUS as string,\n\t\tCENTRALCREDITCHKTECHERRSTS as string,\n\t\tHDRGENERALINCOMPLETIONSTATUS as string,\n\t\tOVERALLPRICINGINCOMPLETIONSTS as string,\n\t\tHEADERDELIVINCOMPLETIONSTATUS as string,\n\t\tHEADERBILLGINCOMPLETIONSTATUS as string,\n\t\tOVRLITMGENERALINCOMPLETIONSTS as string,\n\t\tOVRLITMBILLINGINCOMPLETIONSTS as string,\n\t\tOVRLITMDELIVINCOMPLETIONSTS as string,\n\t\tCONTRACTMANUALCOMPLETION as string,\n\t\tOVERALLCHMLCMPLNCSTATUS as string,\n\t\tID as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> StagingLayer\nStagingLayer select(mapColumn(\n\t\tSALESDOCUMENT,\n\t\tCREATEDBYUSER,\n\t\tCREATIONDATE,\n\t\tSALESORGANIZATION,\n\t\tSOLDTOPARTY,\n\t\tTOTALNETAMOUNT,\n\t\tTRANSACTIONCURRENCY,\n\t\tCUSTOMERPAYMENTTERMS,\n\t\tID\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SelectSpecificColumns\nSelectSpecificColumns sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\ttruncate: true,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> CuratedLayer"
+		}
+	}
+}

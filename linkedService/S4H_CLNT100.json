@@ -1,0 +1,16 @@
+{
+	"name": "S4H_CLNT100",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapHana",
+		"typeProperties": {
+			"connectionString": "servernode=51.136.10.163:30215;uid=ADFUSER;SESSIONVARIABLE:CDS_CLIENT=100",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5ZjFjMTA1ZS0zYTU2LTQ0NTMtOGE4My03NGZlN2QwNWVlZTMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SAPIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

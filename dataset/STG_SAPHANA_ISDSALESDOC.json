@@ -1,0 +1,16 @@
+{
+	"name": "STG_SAPHANA_ISDSALESDOC",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "S4H_HANA",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "1. Staging"
+		},
+		"annotations": [],
+		"type": "SapHanaTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

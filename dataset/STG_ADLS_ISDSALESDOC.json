@@ -1,0 +1,27 @@
+{
+	"name": "STG_ADLS_ISDSALESDOC",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SAP data lake",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "1. Staging"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ISDSALESDOC.csv",
+				"fileSystem": "sap-landing-zone"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

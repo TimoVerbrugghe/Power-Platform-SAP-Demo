@@ -1,0 +1,16 @@
+{
+	"name": "S4H_HANA",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapHana",
+		"typeProperties": {
+			"connectionString": "servernode=51.136.10.163:30215;uid=ADFUSER",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyZGE1NTE5ZS1jZTQxLTQ3NmUtYTUwMC1iM2ZmYTYxNjY2ZmYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SAPIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
