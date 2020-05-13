@@ -1,0 +1,42 @@
+@AbapCatalog.sqlViewName: 'ISDSALESDOC_TST'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #CHECK
+@EndUserText.label: 'SalesDoc Test'
+
+
+define view ZBD_I_SALESDOC_TST as select from I_SalesDocument {
+key SalesDocument,
+
+      //Category
+      SDDocumentCategory,
+      SalesDocumentType,
+      SalesDocumentProcessingType,
+
+      CreationDate,
+      CreationTime,
+      LastChangeDate,
+      //@Semantics.systemDate.lastChangedAt: true
+      LastChangeDateTime,
+
+      //Organization
+      SalesOrganization,
+      DistributionChannel,
+      OrganizationDivision,
+      SalesGroup,
+      SalesOffice,
+      PurchaseOrderByCustomer,
+      SoldToParty,
+      CustomerGroup as CustGrp,
+      _CustomerGroup.CustomerGroup,
+      _CustomerGroup._Text as Text,
+      
+      
+      //Pricing
+      //TotalNetAmount,
+      TransactionCurrency,
+      PricingDate,
+      RetailPromotion,
+      //PriceDetnExchangeRate,
+      SalesDocumentCondition
+    
+}
