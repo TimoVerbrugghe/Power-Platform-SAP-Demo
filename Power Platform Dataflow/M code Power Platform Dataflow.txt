@@ -1,0 +1,9 @@
+let
+  Bron = AzureStorage.DataLake("https://xxxxxxxxxxx.dfs.core.windows.net/powerplatform"),
+  Navigatie = Bron{[#"Folder Path" = "https://xxxxxxxxxxx.dfs.core.windows.net/powerplatform/", Name = "ISDSALESDOC.csv"]}[Content],
+  #"CSV-bestand geïmporteerd" = Csv.Document(Navigatie, [Delimiter = ",", Columns = 145, QuoteStyle = QuoteStyle.None]),
+  #"Headers met verhoogd niveau" = Table.PromoteHeaders(#"CSV-bestand geïmporteerd", [PromoteAllScalars = true]),
+  #"Change Type" = Table.TransformColumnTypes(#"Headers met verhoogd niveau", {{"MANDT", Int64.Type}, {"SALESDOCUMENT", Int64.Type}, {"SDDOCUMENTCATEGORY", type text}, {"SALESDOCUMENTTYPE", type text}}),
+
+in
+  #"Change Type"
